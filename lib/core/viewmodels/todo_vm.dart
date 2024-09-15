@@ -6,7 +6,8 @@ class TodoVM {
     Dio dio = Dio();
     try {
       Response res = await dio.get('https://dummyjson.com/todos');
-      List<Todo>? allTodos = res.data.map((e) => Todo.fromJson(e)).toList();
+      List<dynamic> todoList = res.data['todos'];
+      List<Todo>? allTodos = todoList.map((e) => Todo.fromJson(e as Map<String, dynamic>)).toList();
       return allTodos;
     } catch (e) {
       print(e);

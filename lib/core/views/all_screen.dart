@@ -6,15 +6,6 @@ class AllScreen extends StatelessWidget {
   TodoVM tvm = TodoVM();
   @override
   Widget build(BuildContext context) {
-
-    // FutureBuilder(future: pvm.grtProducts(), builder: (ctx,snapshot){
-    //     if (snapshot.connectionState == ConnectionState.waiting) {
-    //       return const Center(
-    //         child: CircularProgressIndicator(),
-    //       );
-    //     }
-
-
     return FutureBuilder(future: tvm.getTodos(), builder: (ctx,snapshot){
       if(snapshot.connectionState == ConnectionState.waiting){
         return const Center(
